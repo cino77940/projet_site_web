@@ -1,0 +1,39 @@
+{% extends 'base-backend.html.twig' %}
+{% block title %}Faq{% endblock %}
+
+{% block body %}
+<div class="container-fluid">
+    <h1>Faq</h1>
+    
+    <a href="{{ path('app_admin_faq_new') }}" class="btn btn-dark">Nouveau</a>
+
+
+    <table class="table">
+        <thead>
+            <tr>
+                {# <th>Id</th> #}
+                <th>Titre</th>
+                <th>Reponse</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for faq in faqs %}
+            <tr>
+                {# <td>{{ faq.id }}</td> #}
+                <td>{{ faq.titre }}</td>
+                <td>{{ faq.texte }}</td>
+                <td>
+                    <a href="{{ path('app_admin_faq_show', {'id': faq.id}) }}" class="btn btn-dark">Afficher</a>
+                    <a href="{{ path('app_admin_faq_edit', {'id': faq.id}) }}" class="btn btn-dark">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">Aucun enregistrement</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

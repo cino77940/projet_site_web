@@ -1,0 +1,51 @@
+{% extends 'base-backend.html.twig' %}
+
+{% block title %}Home{% endblock %}
+
+{% block body %}
+<div class="container-fluid">
+    <h1>Home</h1>
+    <a href="{{ path('app_admin_home_new') }}" class="btn btn-dark">Nouveau</a>
+
+
+    <table class="table">
+        <thead>
+            <tr>
+                {# <th>Id</th> #}
+                <th>Is_active</th>
+                <th>Titre</th>
+                <th>Texte</th>
+                <th>Image_name</th>
+                <th>Validite_debut</th>
+                <th>Validite_fin</th>
+                <th>Logo</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for home in homes %}
+            <tr>
+                {# <td>{{ home.id }}</td> #}
+                <td>{{ home.isActive ? 'Yes' : 'No' }}</td>
+                <td>{{ home.titre }}</td>
+                <td>{{ home.texte }}</td>
+                <td>{{ home.imageName }}</td>
+                <td>{{ home.validiteDebut ? home.validiteDebut|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ home.validiteFin ? home.validiteFin|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ home.logo }}</td>
+            
+                <td>
+                    <a href="{{ path('app_admin_home_show', {'id': home.id}) }}" class= "btn btn-dark">Afficher</a>
+                    <a href="{{ path('app_admin_home_edit', {'id': home.id}) }}" class= "btn btn-dark">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">Aucun enregistrement</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    </div>
+
+{% endblock %}

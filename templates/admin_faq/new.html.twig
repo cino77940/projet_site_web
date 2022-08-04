@@ -1,0 +1,10 @@
+{% extends 'base-backend.html.twig' %}
+{% block title %}Nouvelle Faq{% endblock %}
+
+{% block body %}
+    <h1>Nouvelle Faq</h1>
+
+    {{ include('admin_faq/_form.html.twig') }}
+
+    <a href="{{ path('app_admin_faq_index') }}">Retour à la liste</a>
+{% endblock %}

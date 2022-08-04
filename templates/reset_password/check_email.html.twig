@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Password Reset Email Sent{% endblock %}
+
+{% block body %}
+<section class="container-fluid">
+    <div class="h3 mt-5 text-center">
+        <p>
+            Si votre email existe dans notre base de données un lien vous sera envoyé à l'adresse mail que vous avez indiqué.
+        
+            <p>ce lien expire dans {{ resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle') }}.</p>
+        </p>
+        <p>Si vous ne recevez pas de mail verifier vos spams ou <a href="{{ path('app_forgot_password_request') }}">Renvoyer le mail</a>.</p>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,44 @@
+{% extends 'base-backend.html.twig' %}
+
+{% block title %}Carousel{% endblock %}
+
+{% block body %}
+<div class="container-fluid">
+
+    <h1>Carousel</h1>
+    <a href="{{ path('app_admin_carousel_new') }}" class="btn btn-dark">Nouveau</a>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nom</th>
+                <th>Titre</th>
+                <th>Texte</th>
+                {# <th>Updated_at</th> #}
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for carousel in carousels %}
+            <tr>
+                <td>{{ carousel.id }}</td>
+                <td>{{ carousel.imageName }}</td>
+                <td>{{ carousel.titre }}</td>
+                <td>{{ carousel.texte }}</td>
+                {# <td>{{ carousel.updatedAt ? carousel.updatedAt|date('Y-m-d H:i:s') : '' }}</td> #}
+                <td>
+                    <a href="{{ path('app_admin_carousel_show', {'id': carousel.id}) }}" class="btn btn-dark">Afficher</a>
+                    <a href="{{ path('app_admin_carousel_edit', {'id': carousel.id}) }}" class="btn btn-dark">Modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">Aucun enregistrement </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    </div>
+{% endblock %}
