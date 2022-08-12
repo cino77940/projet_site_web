@@ -39,6 +39,10 @@ class Home
     #[ORM\OneToMany(mappedBy: 'home', targetEntity: Carousel::class)]
     private $carousels;
 
+    #[ORM\ManyToOne(targetEntity: Faq::class, inversedBy: 'homes')]
+    #[ORM\JoinColumn(nullable: false)]
+    private $homeFaq;
+
     public function __construct()
     {
         $this->carousels = new ArrayCollection();
@@ -159,6 +163,18 @@ class Home
                 $carousel->setHome(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getHomeFaq(): ?Faq
+    {
+        return $this->homeFaq;
+    }
+
+    public function setHomeFaq(?Faq $homeFaq): self
+    {
+        $this->homeFaq = $homeFaq;
 
         return $this;
     }

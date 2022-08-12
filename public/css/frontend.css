@@ -15,6 +15,22 @@ body{
 a {
 text-decoration: none;
 }
+/* .lien-mosaic{
+    position: relative;
+    display: block;
+} */
+.lien-mosaic img{
+    /*position: absolute;*/
+    top: 0;
+    left: 0;
+}
+.bounce{
+   transition: all 0.5s;
+   transform: scale(1);
+}
+.bounce:hover{
+   transform: scale(1.2);
+}
 .logo{
     width:189px;
 }
