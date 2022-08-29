@@ -6,15 +6,18 @@ use App\Entity\SousCategorie;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 
 class SousCategorieType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('nom')
+            ->add('nom', TextType::class, ["label"=>"Nom :", "required"=>true])
             ->add('slug')
             ->add('image_name')
+            ->add('imageFile', FileType::class,["label"=>"Image :", "required"=>true])
             ->add('updated_at')
         ;
     }

@@ -4,11 +4,12 @@ namespace App\Form;
 
 use App\Entity\Carousel;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use FOS\CKEditorBundle\Form\Type\CKEditorType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
-use FOS\CKEditorBundle\Form\Type\CKEditorType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 
 
 class CarouselType extends AbstractType
@@ -20,10 +21,17 @@ class CarouselType extends AbstractType
                 'label' => 'Nom de l\'image',
                 'required' => true,
             ])
+
+            ->add('imageFile', FileType::class,[
+                "label"=>"Image :",
+                "required"=>true
+            ])
+
             ->add('titre', TextType::class, [
                 'label' => 'Titre',
                 'required' => true,
             ])
+            
             ->add('texte', TextareaType::class, [
                 'label' => 'Texte',
                 'required' => true,

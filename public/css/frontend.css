@@ -19,17 +19,36 @@ text-decoration: none;
     position: relative;
     display: block;
 } */
+
+input{
+    border: gray 1px solid;
+    border-radius: 10px;
+}
+
+textarea{
+    border: gray 1px solid;
+    border-radius: 10px;
+}
+
+.h1textSize{
+    font-size: 1.5rem;
+}
+
+.nav-link{
+    font-size: 1rem;
+}
+
 .lien-mosaic img{
     /*position: absolute;*/
     top: 0;
     left: 0;
 }
 .bounce{
-   transition: all 0.5s;
-   transform: scale(1);
+    transition: all 0.5s;
+    transform: scale(1);
 }
 .bounce:hover{
-   transform: scale(1.2);
+    transform: scale(1.1);
 }
 .logo{
     width:189px;

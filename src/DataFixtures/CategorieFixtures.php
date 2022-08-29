@@ -8,6 +8,9 @@ use Doctrine\Bundle\FixturesBundle\Fixture;
 
 class CategorieFixtures extends Fixture
 {
+    public const CAT_BRICOLAGE = 'bricolage';
+
+    //
     public function load(ObjectManager $manager): void
     {
         $categorie = new Categorie();
@@ -16,6 +19,7 @@ class CategorieFixtures extends Fixture
         $categorie->setImageName('bricolage.jpeg');
         $categorie->setUpdatedAt(new \DateTimeImmutable());
         $manager->persist($categorie);
+        $this->addReference(self::CAT_BRICOLAGE, $categorie);
 
         $categorie = new Categorie();
         $categorie->setNom('Jardinage');
