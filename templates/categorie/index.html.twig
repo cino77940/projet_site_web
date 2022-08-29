@@ -7,8 +7,12 @@
 <article class="row text-center">
     {% for categorie in categories %}
     <div class="col-lg-3 col-md-6 col-sm-6 mt-4">
-        <a href="{{ path('app_sous_categorie')}}" class="lien-mosaic" ><img class="rounded bounce" src=" {{ asset('images/Categories/' ~ categorie.imageName )}}" alt=""></a>
+        {% if categorie.slug =="autres"%}
+            <a href="{{ path('app_demande')}}" class="lien-mosaic" ><img class="rounded bounce" src=" {{ asset('images/Categories/' ~ categorie.imageName )}}" alt=""></a>
+        {% else %}
+            <a href="{{ path('app_categorie_show', {'slug': categorie.slug })}}" class="lien-mosaic" ><img class="rounded bounce" src=" {{ asset('images/Categories/' ~ categorie.imageName )}}" alt=""></a>
         <h2 class="align-self-end w-100 text-center">{{ categorie.nom }}</h2>
+        {% endif %}
     </div>
     {% endfor %}
     

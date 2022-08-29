@@ -8,8 +8,8 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class SousCategorieController extends AbstractController
 {
-    #[Route('/sous/categorie', name: 'app_sous_categorie')]
-    public function index(): Response
+    #[Route('/sous-categorie/{id}', name: 'app_sous_categorie')]
+    public function index(int $id): Response
     {
         return $this->render('sous_categorie/index.html.twig', [
             'controller_name' => 'SousCategorieController',

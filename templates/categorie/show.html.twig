@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Catégorie{% endblock %}
+
+{% block body %}
+{%  for sousCat in categorie.sousCategories %}
+{{ dump(sousCat)}}
+{% endfor %}
+{% endblock %}

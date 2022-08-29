@@ -17,4 +17,12 @@ class CategorieController extends AbstractController
             'categories' => $categories,
         ]);
     }
+    #[Route('/categorie/{slug}', name: 'app_categorie_show')]
+    public function show(CategorieRepository $categorieRepository, string $slug): Response
+    {
+        $categorie =  $categorieRepository->findOneBy(["slug" => $slug], ["nom"=>"ASC"]);
+        return $this->render('categorie/show.html.twig', [
+            'categorie' => $categorie,
+        ]);
+    }
 }
