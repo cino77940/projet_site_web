@@ -6,31 +6,17 @@
 
 <h1 class="ms-2"> Profil de {{ app.user.prenom }} {{ app.user.nom }}</h1>
 
+<div class="row">
+    <div class="col-md-6">
+
         <div>
             <a href="{{ path('app_editprofile') }}" class="btn btn-dark">Modifier le profil</a>
             <a href="#" class="btn btn-dark">Modifier le mot de passe</a>
-        </div>
 
-
-<div class="container">
-    <div class="row">
-        <div class="col">
-            <h3 class="text-start">Nom : {{ app.user.nom }}</h3>
         </div>
-        <div class="col">
-            <h3 class="text-start">Prénom : {{ app.user.prenom }}</h3>
-        </div>
-        <div class="col">
-            <h3 class="text-start">Pseudo : {{ app.user.pseudo }}</h3>
-        </div>
-        <div class="col">
-            <h3 class="text-start">Email : {{ app.user.email }}</>
-        </div>
-    </div>
-</div>
 
 <div>
-    <h1>Demande de {{ app.user.pseudo }}</h1>
+    <h1>Demande de{{ app.user.pseudo }}</h1>
 </div>
 
 {% for demandes in app.user.demandes %}
@@ -47,11 +33,6 @@
                 <p>{{ demandes.description }}</p>
             </th>
 
-            {# <th>
-                <h2>Date</h2>
-                <p>{{ demandes.startDate }}</p>
-            </th> #}
-
             <th>
                 <h2>Action</h2>
                 <a href="{{ path('app_demande_show', {'id': demandes.id}) }}" class="btn btn-dark">Voir la demande</a>
@@ -59,10 +40,6 @@
 
         </th>
     </table>
-
-<div>
-   
-    </div>
         
         
 {% endfor %}
