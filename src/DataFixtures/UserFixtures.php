@@ -36,6 +36,25 @@ class UserFixtures extends Fixture Implements FixtureGroupInterface
         $user->setPassword($this->encodeur->hashPassword($user, "123456"));
         
         $manager->persist($user);
+
+        $user = new User();
+        $user->setEmail("jean@louis.fr");
+        $user->setNom("Jean");
+        $user->setPrenom("Louis");
+        $user->setPseudo("JL77");
+        $user->setDescription("Je suis étudiant en developpement web");
+        $user->setNumeroMobile("0750817918");
+        $user->setDateDeNaissance(new \DateTime("1990-05-07"));
+        $user->setGenre("Homme");
+        $user->setAdresse("14 imp du 24 juillet 1944");
+        $user->setVille("La Brosse Montceaux");
+        $user->setPays("France");
+        $user->setCodePostal(77940);
+        $user->setRoles(["ROLE_USER"]);
+        $user->setPassword($this->encodeur->hashPassword($user, "123456"));
+        
+        $manager->persist($user);
+
         $manager->flush();
     }
     public static function getGroups(): array

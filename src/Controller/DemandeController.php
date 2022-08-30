@@ -25,7 +25,7 @@ class DemandeController extends AbstractController
         return new Response($htmlToReturn);
     }
 
-    #[Route('/demande', name: 'app_demande')]
+    #[Route('/demande', name: 'app_demande_index')]
     public function index(EntityManagerInterface $entityManagerInterface, Request $request): Response
     {
 
@@ -36,11 +36,51 @@ class DemandeController extends AbstractController
             $demande->setUser($this->getUser());
             $entityManagerInterface->persist($demande);
             $entityManagerInterface->flush();
-            return $this->redirectToRoute('app_demande');
+            return $this->redirectToRoute('app_demande_index');
         }
 
         return $this->render('demande/index.html.twig', [
             'form' => $form->createView(),
         ]);
     }
+
+    #[Route('/demande/{id}', name: 'app_demande_show')]
+    public function show(Demande $demande): Response
+    {
+        return $this->render('demande/show.html.twig', [
+            'demande' => $demande,
+        ]);
+    }
+
+    #[Route('/demande/{id}/edit', name: 'app_demande_edit')]
+    public function edit(Request $request, Demande $demande): Response
+    {
+        $form = $this->createForm(DemandeType::class, $demande);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('app_demande_index');
+        }
+
+        return $this->render('demande/edit.html.twig', [
+            'demande' => $demande,
+            'form' => $form->createView(),
+        ]);
+    }
+
+    #[Route('/demande/{id}/delete', name: 'app_demande_delete')]
+    public function delete(Request $request, Demande $demande): Response
+    {
+        if ($this->isCsrfTokenValid('delete'.$demande->getId(), $request->request->get('_token'))) {
+            $entityManager = $this->getDoctrine()->getManager();
+            $entityManager->remove($demande);
+            $entityManager->flush();
+        }
+
+        return $this->redirectToRoute('app_demande_index');
+    }
+    
+    
 }

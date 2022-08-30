@@ -1,20 +1,70 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello UserController!{% endblock %}
+{% block title %}Mon compte{% endblock %}
 
 {% block body %}
-<style>
-    .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-    .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-</style>
 
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+<h1 class="ms-2"> Profil de {{ app.user.prenom }} {{ app.user.nom }}</h1>
 
-    This friendly message is coming from:
-    <ul>
-        <li>Your controller at <code><a href="{{ '/Applications/MAMP/htdocs/Projet Symfony/projet_site_web/src/Controller/UserController.php'|file_link(0) }}">src/Controller/UserController.php</a></code></li>
-        <li>Your template at <code><a href="{{ '/Applications/MAMP/htdocs/Projet Symfony/projet_site_web/templates/user/index.html.twig'|file_link(0) }}">templates/user/index.html.twig</a></code></li>
-    </ul>
+        <div>
+            <a href="{{ path('app_editprofile') }}" class="btn btn-dark">Modifier le profil</a>
+            <a href="#" class="btn btn-dark">Modifier le mot de passe</a>
+        </div>
+
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <h3 class="text-start">Nom : {{ app.user.nom }}</h3>
+        </div>
+        <div class="col">
+            <h3 class="text-start">Prénom : {{ app.user.prenom }}</h3>
+        </div>
+        <div class="col">
+            <h3 class="text-start">Pseudo : {{ app.user.pseudo }}</h3>
+        </div>
+        <div class="col">
+            <h3 class="text-start">Email : {{ app.user.email }}</>
+        </div>
+    </div>
 </div>
+
+<div>
+    <h1>Demande de {{ app.user.pseudo }}</h1>
+</div>
+
+{% for demandes in app.user.demandes %}
+    <table class="table container">
+        <th class="row">
+            
+            <th class="col">
+                <h2>Titre</h2>
+                <p>{{ demandes.titre }}</p>
+            </th>
+
+            <th class="col">
+                <h2>description</h2>
+                <p>{{ demandes.description }}</p>
+            </th>
+
+            {# <th>
+                <h2>Date</h2>
+                <p>{{ demandes.startDate }}</p>
+            </th> #}
+
+            <th>
+                <h2>Action</h2>
+                <a href="{{ path('app_demande_show', {'id': demandes.id}) }}" class="btn btn-dark">Voir la demande</a>
+            </th>
+
+        </th>
+    </table>
+
+<div>
+   
+    </div>
+        
+        
+{% endfor %}
+
 {% endblock %}
