@@ -12,6 +12,8 @@ class UserFixtures extends Fixture Implements FixtureGroupInterface
 
     
 {    private $encodeur;
+
+    public const JEAN_LOUIS = 'jean louis';
         
     public function __construct(UserPasswordHasherInterface $userPasswordHasherInterface )
     {
@@ -54,6 +56,7 @@ class UserFixtures extends Fixture Implements FixtureGroupInterface
         $user->setPassword($this->encodeur->hashPassword($user, "123456"));
         
         $manager->persist($user);
+        $this->addReference(self::JEAN_LOUIS, $user);
 
         $manager->flush();
     }

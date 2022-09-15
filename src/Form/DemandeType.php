@@ -12,21 +12,25 @@ class DemandeType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
+        if($options['choix']=="autres"){
+            $builder
+                ->add('categorie', null, [
+                    'label' => 'Catégorie',
+                    'attr' => [
+                        'class' => 'form-control',
+                        'placeholder' => 'Catégorie',
+                    ],
+                ])
+                ->add('sousCategorie', null, [
+                    'label' => 'Sous-catégorie',
+                    'attr' => [
+                        'class' => 'form-control',
+                        'placeholder' => 'Sous-catégorie',
+                    ],
+                ])
+                ;
+        }
         $builder
-            ->add('categorie', null, [
-                'label' => 'Catégorie',
-                'attr' => [
-                    'class' => 'form-control',
-                    'placeholder' => 'Catégorie',
-                ],
-            ])
-            ->add('sousCategorie', null, [
-                'label' => 'Sous-catégorie',
-                'attr' => [
-                    'class' => 'form-control',
-                    'placeholder' => 'Sous-catégorie',
-                ],
-            ])
             ->add('titre', null, [
                 'label' => 'Titre',
                 'attr' => [
@@ -76,7 +80,16 @@ class DemandeType extends AbstractType
                     'placeholder' => 'Budget',
                 ],
             ])
-            ->add('Publier', SubmitType::class)
+            ->add('Publier', SubmitType::class
+            , [
+                'attr' => [
+                    'class' => 'btn btn-dark',
+                    'style' => 'margin-top: 10px',
+                    'placeholder' => 'Publier',
+                    'onclick' => 'return confirm("Voulez-vous vraiment publier cette demande ?")',
+                ],
+            ])
+
         ;
     }
 
@@ -84,6 +97,7 @@ class DemandeType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => Demande::class,
+            'choix'=>null,
         ]);
     }
 }

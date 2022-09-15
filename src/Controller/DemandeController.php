@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Demande;
 use App\Form\DemandeType;
 use App\Repository\CategorieRepository;
+use App\Repository\SousCategorieRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -25,12 +26,23 @@ class DemandeController extends AbstractController
         return new Response($htmlToReturn);
     }
 
-    #[Route('/demande', name: 'app_demande_index')]
-    public function index(EntityManagerInterface $entityManagerInterface, Request $request): Response
-    {
+    
 
+    #[Route('/demande/{catSlug}/{sousCatSlug}', name: 'app_demande_index')]
+    public function index(EntityManagerInterface $entityManagerInterface, Request $request, string $catSlug, string $sousCatSlug, CategorieRepository $categorieRepository, SousCategorieRepository $sousCategorieRepository): Response
+    {
+        //
+        $cat = $categorieRepository->findOneBy(["slug" => $catSlug]);
+        $sousCat = $sousCategorieRepository->findOneBy(["slug" => $sousCatSlug]);
+        //
         $demande=new Demande();
-        $form=$this->createForm(DemandeType::class,$demande);
+        $demande->setCategorie($cat);
+        $demande->setSousCategorie($sousCat);
+        $choix = "demande";
+        if($catSlug == "autres" || $sousCatSlug == "autres"){
+            $choix = "autres";
+        }
+        $form=$this->createForm(DemandeType::class,$demande, ["choix" => $choix]);
         $form->handleRequest($request);
         if($form->isSubmitted() && $form->isValid()){
             $demande->setUser($this->getUser());

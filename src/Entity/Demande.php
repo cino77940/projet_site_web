@@ -2,10 +2,16 @@
 
 namespace App\Entity;
 
-use App\Repository\DemandeRepository;
+use App\Entity\User;
+use App\Entity\Categorie;
+use App\Entity\SousCategorie;
 use Doctrine\ORM\Mapping as ORM;
+use App\Repository\DemandeRepository;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 #[ORM\Entity(repositoryClass: DemandeRepository::class)]
+#[Vich\Uploadable]
 class Demande
 {
     #[ORM\Id]
@@ -27,6 +33,9 @@ class Demande
 
     #[ORM\Column(type: 'string', length: 255)]
     private $imageName;
+
+    #[Vich\UploadableField(mapping: 'Categories', fileNameProperty: 'image_name')]
+    private ?File $imageFile = null;
 
     #[ORM\Column(type: 'string', length: 255)]
     private $vehicule;
@@ -107,6 +116,24 @@ class Demande
 
         return $this;
     }
+
+    public function setImageFile(?File $imageFile = null): void
+    {
+        $this->imageFile = $imageFile;
+
+        if (null !== $imageFile) {
+            // It is required that at least one field changes if you are using doctrine
+            // otherwise the event listeners won't be called and the file is lost
+            $this->updatedAt = new \DateTimeImmutable();
+        }
+    }
+
+    public function getImageFile(): ?File
+    {
+        return $this->imageFile;
+    }
+
+
 
     public function getVehicule(): ?string
     {

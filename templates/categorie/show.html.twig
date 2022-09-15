@@ -9,10 +9,11 @@
 
 <div class="col-lg-3 col-md-6 col-sm-6 mt-4">
         
-            <a href="{{ path('app_categorie_show', {'slug': categorie.slug })}}" class="lien-mosaic" ><img class="rounded bounce" src=" {{ asset('images/SousCategories/' ~ sousCat.imageName )}}" alt=""></a>
+            <a href="{{ path('app_demande_index', {'catSlug': categorie.slug, 'sousCatSlug': sousCat.slug})}}" class="lien-mosaic" ><img class="rounded bounce" src=" {{ asset('images/SousCategories/' ~ sousCat.imageName )}}" alt=""></a>
         <h2 class="align-self-end bounce w-100 text-center">{{ sousCat.nom }}</h2>
 
     </div>
+    
 {% endfor %}
 </article>
 </section>

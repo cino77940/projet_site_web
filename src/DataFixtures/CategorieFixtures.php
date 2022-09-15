@@ -9,7 +9,7 @@ use Doctrine\Bundle\FixturesBundle\Fixture;
 class CategorieFixtures extends Fixture
 {
     public const CAT_BRICOLAGE = 'bricolage';
-
+    public const CAT_JARDINAGE = 'jardinage';
     //
     public function load(ObjectManager $manager): void
     {
@@ -27,11 +27,12 @@ class CategorieFixtures extends Fixture
         $categorie->setImageName('jardinage.jpeg');
         $categorie->setUpdatedAt(new \DateTimeImmutable());
         $manager->persist($categorie);
+        $this->addReference(self::CAT_JARDINAGE, $categorie);
 
         $categorie = new Categorie();
-        $categorie->setNom('Montage de meubles');
-        $categorie->setSlug('montage de meubles');
-        $categorie->setImageName('montageDeMeuble.jpeg');
+        $categorie->setNom('Tâches administratives');
+        $categorie->setSlug('tâches-administratives');
+        $categorie->setImageName('taches-administratives.jpeg');
         $categorie->setUpdatedAt(new \DateTimeImmutable());
         $manager->persist($categorie);
 
@@ -71,23 +72,9 @@ class CategorieFixtures extends Fixture
         $manager->persist($categorie);
 
         $categorie = new Categorie();
-        $categorie->setNom('Mécanique');
+        $categorie->setNom('Mécanique/Réparation');
         $categorie->setSlug('mécanique');
         $categorie->setImageName('mecanique.jpeg');
-        $categorie->setUpdatedAt(new \DateTimeImmutable());
-        $manager->persist($categorie);
-
-        $categorie = new Categorie();
-        $categorie->setNom('Electricité');
-        $categorie->setSlug('electricité');
-        $categorie->setImageName('electricite.jpeg');
-        $categorie->setUpdatedAt(new \DateTimeImmutable());
-        $manager->persist($categorie);
-
-        $categorie = new Categorie();
-        $categorie->setNom('Plomberie');
-        $categorie->setSlug('plomberie');
-        $categorie->setImageName('plomberie.jpeg');
         $categorie->setUpdatedAt(new \DateTimeImmutable());
         $manager->persist($categorie);
 
@@ -113,9 +100,9 @@ class CategorieFixtures extends Fixture
         $manager->persist($categorie);
 
         $categorie = new Categorie();
-        $categorie->setNom('Menuiserie');
-        $categorie->setSlug('menuiserie');
-        $categorie->setImageName('menuiserie.jpeg');
+        $categorie->setNom('Animaux');
+        $categorie->setSlug('Animaux');
+        $categorie->setImageName('Animaux.jpeg');
         $categorie->setUpdatedAt(new \DateTimeImmutable());
         $manager->persist($categorie);
 

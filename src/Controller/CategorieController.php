@@ -17,6 +17,14 @@ class CategorieController extends AbstractController
             'categories' => $categories,
         ]);
     }
+    #[Route('/categories', name: 'app_categorie_all')]
+    public function indexAll(CategorieRepository $categorieRepository): Response
+    {
+        $categories =  $categorieRepository->findAll();
+        return $this->render('categorie/index-all.html.twig', [
+            'categories' => $categories,
+        ]);
+    }
     #[Route('/categorie/{slug}', name: 'app_categorie_show')]
     public function show(CategorieRepository $categorieRepository, string $slug): Response
     {

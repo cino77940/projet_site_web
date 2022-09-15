@@ -7,11 +7,11 @@
 <article class="row text-center">
     {% for categorie in categories %}
     <div class="col-lg-3 col-md-6 col-sm-6 mt-4">
-        {% if categorie.slug =="autres"%}
-            <a href="{{ path('app_categorie')}}" class="lien-mosaic" ><img class="rounded bounce" src=" {{ asset('images/Categories/' ~ categorie.imageName )}}" alt=""></a>
+        {% if categorie.slug !="autres"%}
+            <a href="{{ path('app_categorie_show' ,{'slug': categorie.slug})}}" class="lien-mosaic" ><img class="rounded bounce" src=" {{ asset('images/Categories/' ~ categorie.imageName )}}" alt=""></a>
             <h2 class="align-self-end bounce w-100 text-center">{{ categorie.nom }}</h2>
         {% else %}
-            <a href="{{ path('app_demande_index', {'slug': categorie.slug })}}" class="lien-mosaic" ><img class="rounded bounce" src=" {{ asset('images/Categories/' ~ categorie.imageName )}}" alt=""></a>
+            <a href="{{ path('app_demande_index', {'catSlug': categorie.slug, "sousCatSlug": "autres" })}}" class="lien-mosaic" ><img class="rounded bounce" src=" {{ asset('images/Categories/' ~ categorie.imageName )}}" alt=""></a>
         <h2 class="align-self-end bounce w-100 text-center">{{ categorie.nom }}</h2>
         {% endif %}
     </div>
