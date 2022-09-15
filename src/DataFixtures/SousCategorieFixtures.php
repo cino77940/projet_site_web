@@ -229,7 +229,280 @@ class SousCategorieFixtures extends Fixture implements DependentFixtureInterface
         $sousCategorie->setUpdatedAt(new \DateTimeImmutable());
         $manager->persist($sousCategorie);
 
-        
+        $sousCategorie = new SousCategorie();
+        $sousCategorie->setNom('Déménagement complet');
+        $sousCategorie->setSlug('demenagement complet');
+        $sousCategorie->setImageName('demenagement-complet.jpg');
+        $sousCategorie->setCategorie($this->getReference(CategorieFixtures::CAT_DEMENAGEMENT));
+        $sousCategorie->setUpdatedAt(new \DateTimeImmutable());
+        $manager->persist($sousCategorie);
+
+        $sousCategorie = new SousCategorie();
+        $sousCategorie->setNom('Aide au déménagement');
+        $sousCategorie->setSlug('aide-au-demenagement');
+        $sousCategorie->setImageName('aide-au-demenagement.jpg');
+        $sousCategorie->setCategorie($this->getReference(CategorieFixtures::CAT_DEMENAGEMENT));
+        $sousCategorie->setUpdatedAt(new \DateTimeImmutable());
+        $manager->persist($sousCategorie);
+
+        $sousCategorie = new SousCategorie();
+        $sousCategorie->setNom('Aide au déchargement');
+        $sousCategorie->setSlug('aide-au-dechargement');
+        $sousCategorie->setImageName('aide-au-dechargement.jpg');
+        $sousCategorie->setCategorie($this->getReference(CategorieFixtures::CAT_DEMENAGEMENT));
+        $sousCategorie->setUpdatedAt(new \DateTimeImmutable());
+        $manager->persist($sousCategorie);
+
+        $sousCategorie = new SousCategorie();
+        $sousCategorie->setNom('Autres');
+        $sousCategorie->setSlug('autres');
+        $sousCategorie->setImageName('autres2.jpg');
+        $sousCategorie->setCategorie($this->getReference(CategorieFixtures::CAT_DEMENAGEMENT));
+        $sousCategorie->setUpdatedAt(new \DateTimeImmutable());
+        $manager->persist($sousCategorie);
+
+        $sousCategorie = new SousCategorie();
+        $sousCategorie->setNom('Meubles en kit');
+        $sousCategorie->setSlug('meubles-en-kit');
+        $sousCategorie->setImageName('meubles-en-kit.jpg');
+        $sousCategorie->setCategorie($this->getReference(CategorieFixtures::CAT_LIVRAISON));
+        $sousCategorie->setUpdatedAt(new \DateTimeImmutable());
+        $manager->persist($sousCategorie);
+
+        $sousCategorie = new SousCategorie();
+        $sousCategorie->setNom('Electroménager');
+        $sousCategorie->setSlug('electromenager');
+        $sousCategorie->setImageName('electromenager.jpg');
+        $sousCategorie->setCategorie($this->getReference(CategorieFixtures::CAT_LIVRAISON));
+        $sousCategorie->setUpdatedAt(new \DateTimeImmutable());
+        $manager->persist($sousCategorie);
+
+        $sousCategorie = new SousCategorie();
+        $sousCategorie->setNom('Plis et colis');
+        $sousCategorie->setSlug('plis-et-colis');
+        $sousCategorie->setImageName('plis-et-colis.jpg');
+        $sousCategorie->setCategorie($this->getReference(CategorieFixtures::CAT_LIVRAISON));
+        $sousCategorie->setUpdatedAt(new \DateTimeImmutable());
+        $manager->persist($sousCategorie);
+
+        $sousCategorie = new SousCategorie();
+        $sousCategorie->setNom('Courses');
+        $sousCategorie->setSlug('courses');
+        $sousCategorie->setImageName('courses.jpg');
+        $sousCategorie->setCategorie($this->getReference(CategorieFixtures::CAT_LIVRAISON));
+        $sousCategorie->setUpdatedAt(new \DateTimeImmutable());
+        $manager->persist($sousCategorie);
+
+        $sousCategorie = new SousCategorie();
+        $sousCategorie->setNom('Autres');
+        $sousCategorie->setSlug('autres');
+        $sousCategorie->setImageName('autres3.jpg');
+        $sousCategorie->setCategorie($this->getReference(CategorieFixtures::CAT_LIVRAISON));
+        $sousCategorie->setUpdatedAt(new \DateTimeImmutable());
+        $manager->persist($sousCategorie);
+
+        $sousCategorie = new SousCategorie();
+        $sousCategorie->setNom('Ménage');
+        $sousCategorie->setSlug('menage');
+        $sousCategorie->setImageName('menage.jpg');
+        $sousCategorie->setCategorie($this->getReference(CategorieFixtures::CAT_NETTOYAGE));
+        $sousCategorie->setUpdatedAt(new \DateTimeImmutable());
+        $manager->persist($sousCategorie);
+
+        $sousCategorie = new SousCategorie();
+        $sousCategorie->setNom('Lavage de voiture');
+        $sousCategorie->setSlug('lavage-de-voiture');
+        $sousCategorie->setImageName('lavage-de-voiture.jpg');
+        $sousCategorie->setCategorie($this->getReference(CategorieFixtures::CAT_NETTOYAGE));
+        $sousCategorie->setUpdatedAt(new \DateTimeImmutable());
+        $manager->persist($sousCategorie);
+
+        $sousCategorie = new SousCategorie();
+        $sousCategorie->setNom('Repassage');
+        $sousCategorie->setSlug('repassage');
+        $sousCategorie->setImageName('repassage.jpg');
+        $sousCategorie->setCategorie($this->getReference(CategorieFixtures::CAT_NETTOYAGE));
+        $sousCategorie->setUpdatedAt(new \DateTimeImmutable());
+        $manager->persist($sousCategorie);
+
+        $sousCategorie = new SousCategorie();
+        $sousCategorie->setNom('Autres');
+        $sousCategorie->setSlug('autres');
+        $sousCategorie->setImageName('autres4.jpg');
+        $sousCategorie->setCategorie($this->getReference(CategorieFixtures::CAT_NETTOYAGE));
+        $sousCategorie->setUpdatedAt(new \DateTimeImmutable());
+        $manager->persist($sousCategorie);
+
+        $sousCategorie = new SousCategorie();
+        $sousCategorie->setNom('Entretien');
+        $sousCategorie->setSlug('entretien');
+        $sousCategorie->setImageName('entretien.jpg');
+        $sousCategorie->setCategorie($this->getReference(CategorieFixtures::CAT_MECANIQUE_REPARATION));
+        $sousCategorie->setUpdatedAt(new \DateTimeImmutable());
+        $manager->persist($sousCategorie);
+
+        $sousCategorie = new SousCategorie();
+        $sousCategorie->setNom('Réparation');
+        $sousCategorie->setSlug('reparation');
+        $sousCategorie->setImageName('reparation.jpg');
+        $sousCategorie->setCategorie($this->getReference(CategorieFixtures::CAT_MECANIQUE_REPARATION));
+        $sousCategorie->setUpdatedAt(new \DateTimeImmutable());
+        $manager->persist($sousCategorie);
+
+        $sousCategorie = new SousCategorie();
+        $sousCategorie->setNom('Dépannage');
+        $sousCategorie->setSlug('depannage');
+        $sousCategorie->setImageName('depannage.jpg');
+        $sousCategorie->setCategorie($this->getReference(CategorieFixtures::CAT_MECANIQUE_REPARATION));
+        $sousCategorie->setUpdatedAt(new \DateTimeImmutable());
+        $manager->persist($sousCategorie);
+
+        $sousCategorie = new SousCategorie();
+        $sousCategorie->setNom('Autres');
+        $sousCategorie->setSlug('autres');
+        $sousCategorie->setImageName('autres5.jpg');
+        $sousCategorie->setCategorie($this->getReference(CategorieFixtures::CAT_MECANIQUE_REPARATION));
+        $sousCategorie->setUpdatedAt(new \DateTimeImmutable());
+        $manager->persist($sousCategorie);
+
+        $sousCategorie = new SousCategorie();
+        $sousCategorie->setNom('Maintenance et réparation');
+        $sousCategorie->setSlug('maintenance-et-reparation');
+        $sousCategorie->setImageName('maintenance-et-reparation.jpg');
+        $sousCategorie->setCategorie($this->getReference(CategorieFixtures::CAT_INFORMATIQUE));
+        $sousCategorie->setUpdatedAt(new \DateTimeImmutable());
+        $manager->persist($sousCategorie);
+
+        $sousCategorie = new SousCategorie();
+        $sousCategorie->setNom('Installation');
+        $sousCategorie->setSlug('installation');
+        $sousCategorie->setImageName('installation.jpg');
+        $sousCategorie->setCategorie($this->getReference(CategorieFixtures::CAT_INFORMATIQUE));
+        $sousCategorie->setUpdatedAt(new \DateTimeImmutable());
+        $manager->persist($sousCategorie);
+
+        $sousCategorie = new SousCategorie();
+        $sousCategorie->setNom('Web design');
+        $sousCategorie->setSlug('web-design');
+        $sousCategorie->setImageName('web-design.jpg');
+        $sousCategorie->setCategorie($this->getReference(CategorieFixtures::CAT_INFORMATIQUE));
+        $sousCategorie->setUpdatedAt(new \DateTimeImmutable());
+        $manager->persist($sousCategorie);
+
+        $sousCategorie = new SousCategorie();
+        $sousCategorie->setNom('Developpement');
+        $sousCategorie->setSlug('developpement');
+        $sousCategorie->setImageName('developpement.jpg');
+        $sousCategorie->setCategorie($this->getReference(CategorieFixtures::CAT_INFORMATIQUE));
+        $sousCategorie->setUpdatedAt(new \DateTimeImmutable());
+        $manager->persist($sousCategorie);
+
+        $sousCategorie = new SousCategorie();
+        $sousCategorie->setNom('Graphisme');
+        $sousCategorie->setSlug('graphisme');
+        $sousCategorie->setImageName('graphisme.jpg');
+        $sousCategorie->setCategorie($this->getReference(CategorieFixtures::CAT_INFORMATIQUE));
+        $sousCategorie->setUpdatedAt(new \DateTimeImmutable());
+        $manager->persist($sousCategorie);
+
+        $sousCategorie = new SousCategorie();
+        $sousCategorie->setNom('Autres');
+        $sousCategorie->setSlug('autres');
+        $sousCategorie->setImageName('autres6.jpg');
+        $sousCategorie->setCategorie($this->getReference(CategorieFixtures::CAT_INFORMATIQUE));
+        $sousCategorie->setUpdatedAt(new \DateTimeImmutable());
+        $manager->persist($sousCategorie);
+
+        $sousCategorie = new SousCategorie();
+        $sousCategorie->setNom('Photographe');
+        $sousCategorie->setSlug('photographe');
+        $sousCategorie->setImageName('photographe.jpeg');
+        $sousCategorie->setCategorie($this->getReference(CategorieFixtures::CAT_EVENEMENTIEL));
+        $sousCategorie->setUpdatedAt(new \DateTimeImmutable());
+        $manager->persist($sousCategorie);
+
+        $sousCategorie = new SousCategorie();
+        $sousCategorie->setNom('Chef à domicile');
+        $sousCategorie->setSlug('chef-a-domicile');
+        $sousCategorie->setImageName('chef-a-domicile.jpg');
+        $sousCategorie->setCategorie($this->getReference(CategorieFixtures::CAT_EVENEMENTIEL));
+        $sousCategorie->setUpdatedAt(new \DateTimeImmutable());
+        $manager->persist($sousCategorie);
+
+        $sousCategorie = new SousCategorie();
+        $sousCategorie->setNom('Barman');
+        $sousCategorie->setSlug('barman');
+        $sousCategorie->setImageName('barman.jpg');
+        $sousCategorie->setCategorie($this->getReference(CategorieFixtures::CAT_EVENEMENTIEL));
+        $sousCategorie->setUpdatedAt(new \DateTimeImmutable());
+        $manager->persist($sousCategorie);
+
+
+        $sousCategorie = new SousCategorie();
+        $sousCategorie->setNom('Serveur');
+        $sousCategorie->setSlug('serveur');
+        $sousCategorie->setImageName('serveur.jpg');
+        $sousCategorie->setCategorie($this->getReference(CategorieFixtures::CAT_EVENEMENTIEL));
+        $sousCategorie->setUpdatedAt(new \DateTimeImmutable());
+        $manager->persist($sousCategorie);
+
+        $sousCategorie = new SousCategorie();
+        $sousCategorie->setNom('DJ');
+        $sousCategorie->setSlug('dj');
+        $sousCategorie->setImageName('dj.jpg');
+        $sousCategorie->setCategorie($this->getReference(CategorieFixtures::CAT_EVENEMENTIEL));
+        $sousCategorie->setUpdatedAt(new \DateTimeImmutable());
+        $manager->persist($sousCategorie);
+
+        $sousCategorie = new SousCategorie();
+        $sousCategorie->setNom('Animateur');
+        $sousCategorie->setSlug('animateur');
+        $sousCategorie->setImageName('animateur.jpg');
+        $sousCategorie->setCategorie($this->getReference(CategorieFixtures::CAT_EVENEMENTIEL));
+        $sousCategorie->setUpdatedAt(new \DateTimeImmutable());
+        $manager->persist($sousCategorie);
+
+        $sousCategorie = new SousCategorie();
+        $sousCategorie->setNom('Traiteur');
+        $sousCategorie->setSlug('traiteur');
+        $sousCategorie->setImageName('traiteur.jpg');
+        $sousCategorie->setCategorie($this->getReference(CategorieFixtures::CAT_EVENEMENTIEL));
+        $sousCategorie->setUpdatedAt(new \DateTimeImmutable());
+        $manager->persist($sousCategorie);
+
+        $sousCategorie = new SousCategorie();
+        $sousCategorie->setNom('Hote/Hotesse d\'accueil');
+        $sousCategorie->setSlug('hote-hotesse-d-accueil');
+        $sousCategorie->setImageName('hote-hotesse-d-accueil.jpg');
+        $sousCategorie->setCategorie($this->getReference(CategorieFixtures::CAT_EVENEMENTIEL));
+        $sousCategorie->setUpdatedAt(new \DateTimeImmutable());
+        $manager->persist($sousCategorie);
+
+        $sousCategorie = new SousCategorie();
+        $sousCategorie->setNom('Autres');
+        $sousCategorie->setSlug('autres');
+        $sousCategorie->setImageName('autres7.jpg');
+        $sousCategorie->setCategorie($this->getReference(CategorieFixtures::CAT_EVENEMENTIEL));
+        $sousCategorie->setUpdatedAt(new \DateTimeImmutable());
+        $manager->persist($sousCategorie);
+
+        $sousCategorie = new SousCategorie();
+        $sousCategorie->setNom('Lavage chien');
+        $sousCategorie->setSlug('lavage-chien');
+        $sousCategorie->setImageName('lavage-chien.jpg');
+        $sousCategorie->setCategorie($this->getReference(CategorieFixtures::CAT_ANIMAUX));
+        $sousCategorie->setUpdatedAt(new \DateTimeImmutable());
+        $manager->persist($sousCategorie);
+
+        $sousCategorie = new SousCategorie();
+        $sousCategorie->setNom('Promenade chien');
+        $sousCategorie->setSlug('promenade-chien');
+        $sousCategorie->setImageName('promenade-chien.jpg');
+        $sousCategorie->setCategorie($this->getReference(CategorieFixtures::CAT_ANIMAUX));
+        $sousCategorie->setUpdatedAt(new \DateTimeImmutable());
+        $manager->persist($sousCategorie);
+    
+
         $manager->flush();
     }
 

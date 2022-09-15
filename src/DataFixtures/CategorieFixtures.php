@@ -10,7 +10,18 @@ class CategorieFixtures extends Fixture
 {
     public const CAT_BRICOLAGE = 'bricolage';
     public const CAT_JARDINAGE = 'jardinage';
-    //
+    public const CAT_TACHES_ADMINISTRATIVES = 'taches-administratives';
+    public const CAT_DEMENAGEMENT = 'demenagement';
+    public const CAT_NETTOYAGE = 'nettoyage';
+    public const CAT_MECANIQUE_REPARATION = 'mecanique-reparation';
+    public const CAT_LOCATION= 'location';
+    public const CAT_INFORMATIQUE = 'informatique';
+    public const CAT_COURS_COACHING = 'cours-coaching';
+    public const CAT_ANIMAUX = 'animaux';
+    public const CAT_EVENEMENTIEL = 'evenementiel';
+    public const CAT_LIVRAISON = 'livraison';
+    public const CAT_AUTRES = 'autres';
+
     public function load(ObjectManager $manager): void
     {
         $categorie = new Categorie();
@@ -35,20 +46,7 @@ class CategorieFixtures extends Fixture
         $categorie->setImageName('taches-administratives.jpeg');
         $categorie->setUpdatedAt(new \DateTimeImmutable());
         $manager->persist($categorie);
-
-        $categorie = new Categorie();
-        $categorie->setNom('Peinture');
-        $categorie->setSlug('peinture');
-        $categorie->setImageName('peinture.jpeg');
-        $categorie->setUpdatedAt(new \DateTimeImmutable());
-        $manager->persist($categorie);
-
-        $categorie = new Categorie();
-        $categorie->setNom('Pose terrasse');
-        $categorie->setSlug('pose terrasse');
-        $categorie->setImageName('terrasse.jpeg');
-        $categorie->setUpdatedAt(new \DateTimeImmutable());
-        $manager->persist($categorie);
+        $this->addReference(self::CAT_TACHES_ADMINISTRATIVES, $categorie);
 
         $categorie = new Categorie();
         $categorie->setNom('Déménagement');
@@ -56,13 +54,16 @@ class CategorieFixtures extends Fixture
         $categorie->setImageName('demenagement.jpeg');
         $categorie->setUpdatedAt(new \DateTimeImmutable());
         $manager->persist($categorie);
+        $this->addReference(self::CAT_DEMENAGEMENT, $categorie);
 
         $categorie = new Categorie();
-        $categorie->setNom('Outils');
-        $categorie->setSlug('outils');
-        $categorie->setImageName('outils.jpeg');
+        $categorie->setNom('Livraison');
+        $categorie->setSlug('livraison');
+        $categorie->setImageName('livraison.jpeg');
         $categorie->setUpdatedAt(new \DateTimeImmutable());
         $manager->persist($categorie);
+        $this->addReference(self::CAT_LIVRAISON, $categorie);
+        
 
         $categorie = new Categorie();
         $categorie->setNom('Nettoyage');
@@ -70,6 +71,7 @@ class CategorieFixtures extends Fixture
         $categorie->setImageName('nettoyage.jpeg');
         $categorie->setUpdatedAt(new \DateTimeImmutable());
         $manager->persist($categorie);
+        $this->addReference(self::CAT_NETTOYAGE, $categorie);
 
         $categorie = new Categorie();
         $categorie->setNom('Mécanique/Réparation');
@@ -77,6 +79,7 @@ class CategorieFixtures extends Fixture
         $categorie->setImageName('mecanique.jpeg');
         $categorie->setUpdatedAt(new \DateTimeImmutable());
         $manager->persist($categorie);
+        $this->addReference(self::CAT_MECANIQUE_REPARATION, $categorie);
 
         $categorie = new Categorie();
         $categorie->setNom('Location');
@@ -84,6 +87,7 @@ class CategorieFixtures extends Fixture
         $categorie->setImageName('location.jpeg');
         $categorie->setUpdatedAt(new \DateTimeImmutable());
         $manager->persist($categorie);
+        $this->addReference(self::CAT_LOCATION, $categorie);
 
         $categorie = new Categorie();
         $categorie->setNom('Informatique');
@@ -91,13 +95,15 @@ class CategorieFixtures extends Fixture
         $categorie->setImageName('informatique.jpeg');
         $categorie->setUpdatedAt(new \DateTimeImmutable());
         $manager->persist($categorie);
+        $this->addReference(self::CAT_INFORMATIQUE, $categorie);
         
         $categorie = new Categorie();
-        $categorie->setNom('Rénovation');
-        $categorie->setSlug('renovation');
-        $categorie->setImageName('renovation.jpeg');
+        $categorie->setNom('Cours/coaching');
+        $categorie->setSlug('cours-coaching');
+        $categorie->setImageName('cours-coaching.jpeg');
         $categorie->setUpdatedAt(new \DateTimeImmutable());
         $manager->persist($categorie);
+        $this->addReference(self::CAT_COURS_COACHING, $categorie);
 
         $categorie = new Categorie();
         $categorie->setNom('Animaux');
@@ -105,6 +111,15 @@ class CategorieFixtures extends Fixture
         $categorie->setImageName('Animaux.jpeg');
         $categorie->setUpdatedAt(new \DateTimeImmutable());
         $manager->persist($categorie);
+        $this->addReference(self::CAT_ANIMAUX, $categorie);
+
+        $categorie = new Categorie();
+        $categorie->setNom('Evenementiel');
+        $categorie->setSlug('evenementiel');
+        $categorie->setImageName('evenementiel.jpeg');
+        $categorie->setUpdatedAt(new \DateTimeImmutable());
+        $manager->persist($categorie);
+        $this->addReference(self::CAT_EVENEMENTIEL, $categorie);
 
         $categorie = new Categorie();
         $categorie->setNom('Autres');
@@ -112,7 +127,7 @@ class CategorieFixtures extends Fixture
         $categorie->setImageName('autres.jpeg');
         $categorie->setUpdatedAt(new \DateTimeImmutable());
         $manager->persist($categorie);
-
+        $this->addReference(self::CAT_AUTRES, $categorie);
 
         $manager->flush();
     }
