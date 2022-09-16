@@ -48,7 +48,7 @@ class DemandeController extends AbstractController
             $demande->setUser($this->getUser());
             $entityManagerInterface->persist($demande);
             $entityManagerInterface->flush();
-            return $this->redirectToRoute('app_demande_index');
+            return $this->redirectToRoute('app_demande_index', ["catSlug" => $catSlug, "sousCatSlug" => $sousCatSlug]);
         }
 
         return $this->render('demande/index.html.twig', [

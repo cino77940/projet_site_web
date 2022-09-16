@@ -5,10 +5,16 @@
 {% block body %}
 <div class="container">
     <div class="mt-3">
-
+{% if is_granted('ROLE_USER') %}
     {{ form_start(form) }}
     {{ form_widget(form) }}
     {{ form_end(form) }}
+{% else %}
+<div class="text-center">
+    <h1>Inscris-toi pour publier une demande</h1>
+    <a href="{{ path('app_register') }}"><i class="text-dark h1 mt-3" data-feather="user-plus"></i></a>
+</div>
+{% endif %}
     </div>
 </div>
 
