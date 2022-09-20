@@ -12,16 +12,16 @@ class MissionsFixtures extends Fixture
     {
         $mission = new Mission();
         $manager->persist($mission);
-        $mission->setNom("Mission 1");
+        $mission->setNom("Portail + portillon");
         $mission->setImageName("image1.jpg");
-        $mission->setDescription("Description de la mission 1");
-        $mission->setType("Type de la mission 1");
-        $mission->setProduit("Produit de la mission 1");
+        $mission->setDescription("Portail + portillon en bois à installer.. fondaion et piliers déjà existants");
+        $mission->setType("Installation");
+        $mission->setProduit("Portail + portillon");
         $mission->setEtat("En cours");
         $mission->setUpdatedAt(new \DateTimeImmutable());
         $mission->setDate(new \DateTimeImmutable());
-        $mission->setVehicule("Véhicule de la mission 1");
-        $mission->setBudget(100);
+        $mission->setVehicule("Camionette");
+        $mission->setBudget(350);
         $mission->setLatitude(48.856614);
         $mission->setLongitude(2.3522219);
         $manager->persist($mission);

@@ -6,6 +6,8 @@ use App\Entity\Demande;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
 class DemandeType extends AbstractType
@@ -45,8 +47,9 @@ class DemandeType extends AbstractType
                     'placeholder' => 'Description',
                 ],
             ])
-            ->add('startDate', null, [
+            ->add('startDate', DateType::class, [
                 'label' => 'Date de début',
+                'widget' => 'single_text',
                 'attr' => [
                     'class' => 'form-control',
                     'placeholder' => 'Date de début',
@@ -59,7 +62,7 @@ class DemandeType extends AbstractType
                     'placeholder' => 'Localisation',
                 ],
             ])
-            ->add('imageName', null, [
+            ->add('imageFile', FileType::class, [
                 'label' => 'Image',
                 'attr' => [
                     'class' => 'form-control',
@@ -72,6 +75,7 @@ class DemandeType extends AbstractType
                     'class' => 'form-control',
                     'placeholder' => 'Véhicule',
                 ],
+                
             ])
             ->add('budget', null, [
                 'label' => 'Budget',
