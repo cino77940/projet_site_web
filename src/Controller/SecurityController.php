@@ -15,9 +15,13 @@ class SecurityController extends AbstractController
         // if ($this->getUser()) {
         //     return $this->redirectToRoute('target_path');
         // }
-
+       // if($this->getUser() && $this->getUser()->isVerified() === false){
+       //     $this->addFlash('danger', 'You need to verify your email address.');
+       //     return $this->redirectToRoute('app_home');
+       // }
         // get the login error if there is one
         $error = $authenticationUtils->getLastAuthenticationError();
+        
         // last username entered by the user
         $lastUsername = $authenticationUtils->getLastUsername();
 

@@ -36,6 +36,7 @@ class UserFixtures extends Fixture Implements FixtureGroupInterface
         $user->setCodePostal(77940);
         $user->setRoles(["ROLE_USER", "ROLE_ADMIN"]);
         $user->setPassword($this->encodeur->hashPassword($user, "123456"));
+        // $user->setIsVerified(true);
         
         $manager->persist($user);
 
@@ -54,6 +55,7 @@ class UserFixtures extends Fixture Implements FixtureGroupInterface
         $user->setCodePostal(77940);
         $user->setRoles(["ROLE_USER"]);
         $user->setPassword($this->encodeur->hashPassword($user, "123456"));
+        // $user->setIsVerified(true);
         
         $manager->persist($user);
         $this->addReference(self::JEAN_LOUIS, $user);

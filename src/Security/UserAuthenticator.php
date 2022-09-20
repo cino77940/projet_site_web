@@ -48,7 +48,13 @@ class UserAuthenticator extends AbstractLoginFormAuthenticator
         if ($targetPath = $this->getTargetPath($request->getSession(), $firewallName)) {
             return new RedirectResponse($targetPath);
         }
-
+       
+        if($token->getUser()->isVerified() === false){ 
+            $token->setUser("");
+            $request->getSession()->getFlashBag()->add('danger', 'You need to verify your email address.');
+            return new RedirectResponse($this->urlGenerator->generate('app_home'));
+        }
+        //$request->getSession()->getFlashBag()->add('success', 'BRAVO.');
         if(in_array("ROLE_ADMIN", $token->getUser()->getRoles())){
             return new RedirectResponse($this->urlGenerator->generate('app_admin_dashboard'));
         }

@@ -41,7 +41,7 @@
                     </li>
 
                     <li class="nav-item p-3">
-                        <a href="{{path('app_missions')}}" class="text-light"><h1 class="h1textSize bounce">Compétent ?</h1></a>
+                        <a href="{{path('app_mission_index')}}" class="text-light"><h1 class="h1textSize bounce">Compétent ?</h1></a>
                     </li>
 
                 </ul>
@@ -74,6 +74,17 @@
     </div>
 </nav>
 </section>
+
+{% for label, messages in app.flashes %}
+    {% for message in messages %}
+        <div class="alert alert-{{ label }}">
+            {{ message }}
+            {% if label=="danger" %}
+            <a href="{{ path('app_resend_email') }}">Valider mon mail</a>
+            {% endif %}
+        </div>
+    {% endfor %}
+{% endfor %}
 
 
         {% block body %}{% endblock %}

@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mission{% endblock %}
+
+{% block body %}
+    <h1>Mission</h1>
+    <h3>{{ mission.nom}}</h3>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Nom</th>
+                <td>{{ mission.nom }}</td>
+            </tr>
+            <tr>
+                <th>Image_name</th>
+                <td>{{ mission.imageName }}</td>
+            </tr>
+            <tr>
+                <th>Description</th>
+                <td>{{ mission.description }}</td>
+            </tr>
+            <tr>
+                <th>Type</th>
+                <td>{{ mission.type }}</td>
+            </tr>
+            <tr>
+                <th>Produit</th>
+                <td>{{ mission.produit }}</td>
+            </tr>
+            <tr>
+                <th>Etat</th>
+                <td>{{ mission.etat }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{{ mission.date ? mission.date|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Vehicule</th>
+                <td>{{ mission.vehicule }}</td>
+            </tr>
+            <tr>
+                <th>Budget</th>
+                <td>{{ mission.budget }}</td>
+            </tr>
+            <tr>
+                <th>Latitude</th>
+                <td>{{ mission.latitude }}</td>
+            </tr>
+            <tr>
+                <th>Longitude</th>
+                <td>{{ mission.longitude }}</td>
+            </tr>
+        </tbody>
+    </table>
+<h2 class="btn btn-dark"><a class="text-white" href="{{ path('app_mission_index') }}">Toutes les missions</a></h2>
+    {# <a href="{{ path('app_mission_edit', {'id': mission.id}) }}">edit</a> #}
+
+    {# {{ include('mission/_delete_form.html.twig') }} #}
+{% endblock %}
