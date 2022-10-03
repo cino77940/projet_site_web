@@ -66,14 +66,14 @@
     {% for categorie in categories %}
     <div class="col-lg-3 col-md-6 col-sm-6 mt-4">
         <a href="{{ path('app_categorie_show', {slug: categorie.slug })}}" class="lien-mosaic" ><img class="rounded bounce" src=" {{ asset('images/Categories/' ~ categorie.imageName )}}" alt=""></a>
-        <h2 class="align-self-end w-100 text-center">{{ categorie.nom }}</h2>
+        <h2 class="mt-3 align-self-end w-100 text-center">{{ categorie.nom }}</h2>
     </div>
     {% endfor %}
     
 </article>
 </section>
 
-<div class="container-fluid text-center h4 my-4">
+<div class="mt-3 container-fluid text-center h4 my-4">
 <a href="{{ path('app_categorie_all')}}" class="text-dark">Autres</a>
 </div>
 
@@ -89,7 +89,7 @@
             <div class="card mb-3">
                 <div class="row g-0">
                     <div class="col-md-4">
-                        <img src="{{ asset('images/Missions/' ~ mission.imageName )}}" class="img-fluid rounded ms-3 mt-3 img-thumbnail" width="300px" alt="">
+                        <img src="{{ asset('images/Missions/' ~ mission.imageName )}}" class="imgMissionLocation img-fluid rounded ms-3 mt-3 img-thumbnail" alt="">
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">
@@ -101,7 +101,9 @@
                     </div>
                 </div>
             </div>
+            
             {% endfor %}
+            <a href="{{ path('app_mission_index')}}" class="mt-3 mb-5 text-light btn btn-dark">Toutes les missions</a>
         </div>
 
             <div class="col-lg-6 col-md-4 col-sm-12 text-center">
@@ -110,7 +112,7 @@
             <div class="card mb-3">
                 <div class="row g-0">
                     <div class="col-md-4">
-                        <img src="{{ asset('images/Locations/' ~ location.imageName )}}" class="img-fluid rounded ms-3 mt-3 img-thumbnail" width="300px"  alt="">
+                        <img src="{{ asset('images/Locations/' ~ location.imageName )}}" class="imgMissionLocation img-fluid rounded ms-3 mt-3 img-thumbnail" alt="">
                     </div>
                     <div class="col-md-8">
                         <div class="card-body">
@@ -123,6 +125,8 @@
                 </div>
             </div>
             {% endfor %}
+            <a href="{{ path('app_location_index')}}" class="mt-3 mb-5 text-light btn btn-dark">Toutes les locations</a>
+
         </div>
 
 

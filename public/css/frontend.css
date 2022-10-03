@@ -30,6 +30,14 @@ textarea{
     border-radius: 10px;
 }
 
+.imgMissionLocation {
+    width: 450px;
+    height: 150px;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
 .h1textSize{
     font-size: 1.5rem;
 }
